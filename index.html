@@ -3,57 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kỉ Niệm</title>
+    <title>Kỉ Niệm đáng nhớ</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff;
+            background-color: #F6bFb4;
         }
 
-        h1 {
-            text-align: center;
-            margin-top: 20px;
+        /* PHẦN MỚI: DÀNH CHO LOGO VÀ DÒNG CHỮ */
+        .logo-section {
+            padding: 20px 10px; /* Thêm khoảng đệm trên và dưới */
+            text-align: center; /* Căn giữa nội dung bên trong */
+            color: #4b0082; /* Màu chữ */
         }
 
-        /* GRID GALLERY */
+        .logo-section h1 {
+            margin-bottom: 5px; /* Giảm khoảng cách giữa h1 và p */
+            font-size: 28px;
+            color: #8b0000; /* Màu nổi bật cho tên */
+        }
+
+        .logo-section p {
+            margin-top: 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+        /* KẾT THÚC PHẦN MỚI */
+
+        /* GALLERY ẢNH VÀ VIDEO */
         .gallery {
+            padding: 10px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 10px;
-            padding: 20px;
         }
 
-        .photo, .video-thumb {
+        .gallery img, .gallery .video-thumb {
             width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
             cursor: pointer;
             position: relative;
-            overflow: hidden;
+            transition: 0.2s;
         }
 
-        /* Video overlay text */
+        .gallery img:active, .gallery .video-thumb:active {
+            transform: scale(0.97);
+        }
+
+        /* LOGO TRÊN VIDEO */
         .logo-overlay {
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 10px 0;
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
+            pointer-events: none;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
         }
 
-        /* MODAL CHO MAIN ẢNH */
-        .modal-img, .modal-video {
+        /* MODAL PHÓNG TO ẢNH */
+        .modal {
             display: none;
             position: fixed;
-            z-index: 3000;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
@@ -63,110 +81,143 @@
             align-items: center;
         }
 
-        .modal-img img {
-            max-width: 90%;
+        .modal img, .modal video {
+            max-width: 95%;
             max-height: 90%;
-        }
-
-        /* MODAL VIDEO */
-        .modal-video video {
-            width: 90%;
-            max-height: 80%;
             border-radius: 10px;
         }
 
-        .close {
+        .close-btn {
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 40px;
+            font-size: 30px;
             color: white;
             cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
-
 <body>
+    
+    <header class="logo-section">
+        <img src="logokiniem.png" alt="Logo Kỷ Niệm" style="max-width: 800px; height: auto; display: block; margin: 0 auto 10px;">
+        
+        <p>Mỗi khoảnh khắc dưới mái trường đều quý giá; người lái đò không chỉ dạy chúng em kiến thức mà còn trao tặng hành trang kỉ niệm và bài học làm người. Kính chúc Cô 20/11 thật nhiều niềm vui và hạnh phúc!</p>
+    </header>
 
-<h1>Kỉ Niệm</h1>
+    ---
 
-<!-- GALLERY -->
-<div class="gallery">
+    <div class="gallery">
+        <div class="video-thumb">
+            
+            <div class="logo-overlay">VIDEO</div>
+        </div>
 
-    <!-- Ảnh minh hoạ -->
-    <div class="photo" style="background-image: url('anh1.jpg');"></div>
-    <div class="photo" style="background-image: url('anh2.jpg');"></div>
-
-    <!-- VIDEO 1 -->
-    <div class="video-thumb" data-video="7237699225630.mp4">
-        <div class="logo-overlay">VIDEO</div>
+        <img src="z7236467322682_a2465f54f9a3b784a8d669e435f94621.jpg">
+        <img src="z7236467325771_b8efb517dab9b25ba3704ab72d59fcb4.jpg">
+        <img src="z7236467332668_126725f0336784c9f14c7038b5db93d5.jpg">
+        <img src="z7236467333683_19da715aba9af7644ebb7ee18f194f86.jpg">
+        <img src="z7236467339759_771b4b489bfb8ce436f5fb132fd3216d.jpg">
+        <img src="z7236467343123_612185ad7b68797ada40a916221efcd8.jpg">
+        <img src="z7236467349067_da0454b18fae93a233044932131dbaba.jpg">
+        <img src="z7236467351109_7d72f0e57170f523f453a69ad2535f9a.jpg">
+        <img src="z7236467352469_e211902cf11dde2226a62b71af69f6ee.jpg">
+        <img src="z7236467359539_36c338ec0f6d6b435b7493404afebdb0.jpg">
+        <img src="z7236467363453_5a39624ffd67da128f5d9c419c35bd41.jpg">
+        <img src="z7236467363830_f186b40c55a2bb23fc8bcbd746c698c7.jpg">
+        <img src="z7236467367041_d082eb5f52950ba90e5b9928837fe323.jpg">
+        <img src="z7236467368145_58e8e80032edf4ab517f140c36a6f1c7.jpg">
+        <img src="z7236467368411_cce62862238f6e9d0b84df2f8bcadbb2.jpg">
+        <img src="z7236467370446_3fe4d13b657f3a1988de14e832ecbfc5.jpg">
+        <img src="z7236467376714_22759267aeb89c6662ec995f2bfbf507.jpg">
+        <img src="z7236467387172_19ebe7106164187c7f7e4f59ba120e4d.jpg">
+        <img src="z7236467371375_4b49781added59a1f268154c3e4d8800.jpg">
+        <img src="z7236467397678_44e5a7484c15571d3779d5557ddd79fa.jpg">
+        <img src="z7236467398208_a9e35a9f123dfbabc6cae5cb5cff6c24.jpg">
+        <img src="z7236467400801_702b660734241f66049f20892ec0c210.jpg">
+        <img src="z7236467404580_751772ec44ba9d544bfec3bcacc7e447.jpg">
+        <img src="z7236467406039_4e56dc411310da33861599486c3165af.jpg">
+        <img src="z7236467406839_a9399c4c42c5a4c9d9a8b75494972e2c.jpg">
+        
+        <img src="z7236467413528_d05426d78bfa1e40802af1b467038a83.jpg">
+        <img src="z7236467415810_2f7a09efe010b8e847ac8d1c28d862b7.jpg">
+        <img src="z7236467415936_b7ab37c746b9ff4a7bb7dad2a68ab36b.jpg">
+        <img src="z7236467381584_a1e1f8f74d15bfa38e42e4b618221173.jpg">
+        <img src="z7236467383138_ff05ba1c921a13e626f460561c070c6e.jpg">
+        <img src="z7236467386033_d30d038235eab789ca30d7b960e1534d.jpg">
+        <img src="z7236467389086_22e752d69ec0346739535d4de8a67197.jpg">
+        <img src="z7236467393746_d1058621e75f2921b57a9b0813372999.jpg">
+        <img src="z7236467330182_e24182017311c26d75c4393f5c1ac136.jpg">
+        <img src="z7236467339351_1c2b1e31086e8073df3012e668409bf0.jpg">
+        <img src="z7236467342982_6cba1b3df09410e0bfc3e5b1fdf64012.jpg">
+        <img src="z7236467345384_3a772739749e7975b1c449eb830016b2.jpg">
+        <img src="z7236467322056_94bf63947913a7ead4e8775ba7889541.jpg">
+    </div>
+    
+    <div class="modal" id="modal">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img id="modalImg">
     </div>
 
-    <!-- Ảnh -->
-    <div class="photo" style="background-image: url('anh3.jpg');"></div>
-
-    <!-- VIDEO 2 (bạn có thể thêm bao nhiêu cũng được) -->
-    <div class="video-thumb" data-video="7238327326694.mp4">
-        <div class="logo-overlay">VIDEO</div>
+    <div class="modal" id="modalVideo">
+        <span class="close-btn" id="closeVideoBtn">×</span>
+        <video id="modalVideoContent" controls>
+            <source src="7237699225630.mp4" type="video/mp4">
+            
+            <source src="7238327326694.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <!-- Ảnh -->
-    <div class="photo" style="background-image: url('anh4.jpg');"></div>
+    <script>
+        // (GIỮ NGUYÊN JAVASCRIPT)
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modalImg");
+        const closeBtn = document.getElementById("closeBtn");
 
-</div>
-
-<!-- MODAL HÌNH ẢNH -->
-<div class="modal-img" id="modalImg">
-    <span class="close" id="closeImg">&times;</span>
-    <img id="modalImgContent" src="">
-</div>
-
-<!-- MODAL VIDEO -->
-<div class="modal-video" id="modalVideo">
-    <span class="close" id="closeVideo">&times;</span>
-    <video id="modalVideoContent" controls>
-        <source src="" type="video/mp4">
-    </video>
-</div>
-
-<script>
-    // ==========================
-    // MỞ ẢNH
-    // ==========================
-    document.querySelectorAll(".photo").forEach(photo => {
-        photo.addEventListener("click", () => {
-            const modal = document.getElementById("modalImg");
-            const modalImg = document.getElementById("modalImgContent");
-            modalImg.src = photo.style.backgroundImage.slice(5, -2);
-            modal.style.display = "flex";
+        // Mở modal ảnh
+        document.querySelectorAll(".gallery img:not(.video-thumb img)").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+            });
         });
-    });
 
-    document.getElementById("closeImg").onclick = function () {
-        document.getElementById("modalImg").style.display = "none";
-    };
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
 
-    // ==========================
-    // MỞ VIDEO (HỖ TRỢ NHIỀU VIDEO)
-    // ==========================
-    const modalVideo = document.getElementById("modalVideo");
-    const modalVideoContent = document.getElementById("modalVideoContent");
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
 
-    document.querySelectorAll(".video-thumb").forEach(thumb => {
-        thumb.addEventListener("click", () => {
-            const videoSrc = thumb.getAttribute("data-video");
-            modalVideoContent.querySelector("source").src = videoSrc;
-            modalVideoContent.load();
+        // MỞ MODAL VIDEO
+        const modalVideo = document.getElementById("modalVideo");
+        const modalVideoContent = document.getElementById("modalVideoContent");
+        const closeVideoBtn = document.getElementById("closeVideoBtn");
+
+        document.querySelector(".video-thumb").addEventListener("click", () => {
             modalVideo.style.display = "flex";
             modalVideoContent.play();
         });
-    });
 
-    document.getElementById("closeVideo").onclick = function () {
-        modalVideo.style.display = "none";
-        modalVideoContent.pause();
-    };
-</script>
+        closeVideoBtn.addEventListener("click", () => {
+            modalVideo.style.display = "none";
+            modalVideoContent.pause();
+            modalVideoContent.currentTime = 0;
+        });
+
+        modalVideo.addEventListener("click", (e) => {
+            if (e.target === modalVideo) {
+                modalVideo.style.display = "none";
+                modalVideoContent.pause();
+                modalVideoContent.currentTime = 0;
+            }
+        });
+    </script>
 
 </body>
 </html>
+
