@@ -12,17 +12,17 @@
             background-color: #F6bFb4;
         }
 
-        /* PHẦN MỚI: DÀNH CHO LOGO VÀ DÒNG CHỮ */
+        /* PHẦN LOGO VÀ DÒNG CHỮ */
         .logo-section {
-            padding: 20px 10px; /* Thêm khoảng đệm trên và dưới */
-            text-align: center; /* Căn giữa nội dung bên trong */
-            color: #4b0082; /* Màu chữ */
+            padding: 20px 10px;
+            text-align: center;
+            color: #4b0082;
         }
 
         .logo-section h1 {
-            margin-bottom: 5px; /* Giảm khoảng cách giữa h1 và p */
+            margin-bottom: 5px;
             font-size: 28px;
-            color: #8b0000; /* Màu nổi bật cho tên */
+            color: #8b0000;
         }
 
         .logo-section p {
@@ -30,7 +30,14 @@
             font-style: italic;
             font-size: 16px;
         }
-        /* KẾT THÚC PHẦN MỚI */
+        
+        /* Cải thiện hiển thị logo ảnh nếu nó load được */
+        .logo-section img { 
+            max-width: 150px; /* Điều chỉnh lại kích thước hợp lý hơn */
+            height: auto; 
+            display: block; 
+            margin: 0 auto 10px;
+        }
 
         /* GALLERY ẢNH VÀ VIDEO */
         .gallery {
@@ -101,17 +108,20 @@
 <body>
     
     <header class="logo-section">
-        <img src="logokiniem.png" alt="Logo Kỷ Niệm" style="max-width: 800px; height: auto; display: block; margin: 0 auto 10px;">
+        <img src="logokiniem.png" alt="Logo Kỷ Niệm" style="height: auto; display: block; margin: 0 auto 10px;">
         
         <p>Mỗi khoảnh khắc dưới mái trường đều quý giá; người lái đò không chỉ dạy chúng em kiến thức mà còn trao tặng hành trang kỉ niệm và bài học làm người. Kính chúc Cô 20/11 thật nhiều niềm vui và hạnh phúc!</p>
     </header>
 
-    ---
+    <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
 
     <div class="gallery">
-        <div class="video-thumb">
-            
-            <div class="logo-overlay">VIDEO</div>
+        <div class="video-thumb" data-video="video1">
+            <div class="logo-overlay">VIDEO 1</div>
+        </div>
+
+        <div class="video-thumb" data-video="video2">
+            <div class="logo-overlay">VIDEO 2</div>
         </div>
 
         <img src="z7236467322682_a2465f54f9a3b784a8d669e435f94621.jpg">
@@ -163,14 +173,10 @@
     <div class="modal" id="modalVideo">
         <span class="close-btn" id="closeVideoBtn">×</span>
         <video id="modalVideoContent" controls>
-            <source src="7237699225630.mp4" type="video/mp4">
-            
-            <source src="7238327326694.mp4" type="video/mp4">
-        </video>
+            </video>
     </div>
 
     <script>
-        // (GIỮ NGUYÊN JAVASCRIPT)
         const modal = document.getElementById("modal");
         const modalImg = document.getElementById("modalImg");
         const closeBtn = document.getElementById("closeBtn");
@@ -193,14 +199,40 @@
             }
         });
 
-        // MỞ MODAL VIDEO
+        // MỞ MODAL VIDEO - ĐÃ THAY ĐỔI LOGIC XỬ LÝ 2 VIDEO
         const modalVideo = document.getElementById("modalVideo");
         const modalVideoContent = document.getElementById("modalVideoContent");
         const closeVideoBtn = document.getElementById("closeVideoBtn");
 
-        document.querySelector(".video-thumb").addEventListener("click", () => {
-            modalVideo.style.display = "flex";
-            modalVideoContent.play();
+        // KHAI BÁO CÁC ĐƯỜNG DẪN VIDEO
+        const videoSources = {
+            video1: "7237699225630.mp4",
+            video2: "7238327326694.mp4"
+        };
+
+        // Lắng nghe sự kiện cho TẤT CẢ các thumbnails video
+        document.querySelectorAll(".video-thumb").forEach(thumb => {
+            thumb.addEventListener("click", () => {
+                
+                // 1. Lấy mã video (video1 hoặc video2) từ thuộc tính data
+                const videoKey = thumb.getAttribute('data-video');
+                const videoSrc = videoSources[videoKey];
+
+                // 2. Thiết lập đường dẫn video (xóa source cũ và thêm source mới)
+                // Đảm bảo không có source nào được giữ lại từ lần phát trước
+                modalVideoContent.innerHTML = ''; 
+                
+                // Tạo source mới
+                const newSource = document.createElement('source');
+                newSource.src = videoSrc;
+                newSource.type = 'video/mp4';
+                modalVideoContent.appendChild(newSource);
+
+                // 3. Mở modal và tải video
+                modalVideoContent.load(); // Tải lại nội dung video mới
+                modalVideo.style.display = "flex";
+                modalVideoContent.play();
+            });
         });
 
         closeVideoBtn.addEventListener("click", () => {
@@ -220,5 +252,3 @@
 
 </body>
 </html>
-
-
