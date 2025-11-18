@@ -3,47 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Download Page</title>
+    <title>Phone Gallery</title>
+
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
+            background-color: #f2f2f2;
         }
-        .download-button {
-            display: inline-block;
-            margin: 20px;
-            padding: 15px 30px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
+
+        /* VIDEO Ở ĐẦU */
+        .video-container {
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        /* GALLERY ẢNH */
+        .gallery {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
             cursor: pointer;
+            transition: 0.2s;
         }
-        .download-button:hover {
-            background-color: #0056b3;
+
+        .gallery img:active {
+            transform: scale(0.97);
         }
-        .image-container {
-            margin-bottom: 30px; /* Thêm khoảng cách dưới hình ảnh */
+
+        /* PHÓNG TO ẢNH (MODAL) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
         }
-        .image-container img {
-            max-width: 50%; /* Giảm kích thước hình ảnh xuống 50% */
-            height: auto;   /* Giữ tỷ lệ khung hình */
+
+        .modal img {
+            max-width: 95%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
 <body>
-    <h1>Download Your Files</h1>
 
-    <!-- Thêm phần hình ảnh PNG -->
-    <div class="image-container">
-        <img src="LOGO.png" alt="Image description">
+    <!-- VIDEO Ở ĐẦU -->
+    <div class="video-container">
+        <video src="your-video.mp4" controls></video>
     </div>
 
-    <!-- Các nút tải xuống -->
-    <a href="Antonie biology.apk" class="download-button" download>Download for Android</a>
-    <a href="AntonibiologyPC.zip" class="download-button" download>Download for PC</a>
+    <!-- GALLERY ẢNH -->
+    <div class="gallery">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+        <img src="img4.jpg">
+        <img src="img5.jpg">
+        <img src="img6.jpg">
+        <img src="img7.jpg">
+        <img src="img8.jpg">
+        <img src="img9.jpg">
+    </div>
+
+    <!-- MODAL PHÓNG TO ẢNH -->
+    <div class="modal" id="modal">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img id="modalImg">
+    </div>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modalImg");
+        const closeBtn = document.getElementById("closeBtn");
+
+        // Khi bấm vào ảnh → mở modal
+        document.querySelectorAll(".gallery img").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+            });
+        });
+
+        // Đóng modal khi bấm nút X
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Bấm ngoài ảnh → tắt
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
 </body>
 </html>
