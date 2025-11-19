@@ -1,81 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kỉ Niệm đáng nhớ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỉ Niệm đáng nhớ</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #F6bFb4;
-        }
-
-        /* ĐÃ THÊM: Giới hạn chiều rộng tối đa của toàn bộ nội dung */
-        .container {
-            max-width: 800px; /* Nội dung sẽ không rộng quá 800px */
-            margin: 0 auto; /* Căn giữa khối nội dung này */
-            padding: 0 10px;
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F6bFb4;
         }
 
-        .logo-section {
-            padding: 20px 10px;
-            text-align: center; /* Đảm bảo logo và chữ trong header được căn giữa */
-            color: #4b0082;
-        }
-
-        .logo-section h1 {
-            margin-bottom: 5px;
-            font-size: 28px;
-            color: #8b0000;
-        }
-
-        .logo-section p {
-            margin-top: 0;
-            font-style: italic;
-            font-size: 16px;
-        }
-
-        .logo-section img { 
-            max-width: 400px;
-            height: auto; 
-            display: block; 
-            margin: 0 auto 10px; /* Đảm bảo logo được căn giữa */
-        }
-        
-        /* Chỉnh CSS để video hiển thị tốt trong container mới */
-        .video-wrapper video {
-            width: 100% !important; /* Chiếm 100% chiều rộng của container */
-            max-width: 700px; /* Vẫn giữ giới hạn ban đầu của bạn */
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        .logo-section {
+            padding: 20px 10px;
+            text-align: center;
+            color: #4b0082;
         }
-    </style>
+
+        .logo-section h1 {
+            margin-bottom: 5px;
+            font-size: 28px;
+            color: #8b0000;
+        }
+
+        .logo-section p {
+            margin-top: 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        .logo-section img { 
+            max-width: 400px;
+            height: auto; 
+            display: block; 
+            margin: 0 auto 10px;
+        }
+    </style>
 </head>
 <body>
     
-    <div class="container">
+    <header class="logo-section">
+        <img src="logokiniem.png" alt="Logo Kỷ Niệm">
         
-        <header class="logo-section">
-            <img src="logokiniem.png" alt="Logo Kỷ Niệm">
-            
-            <p>Nhân ngày 20/11, chúng em xin gửi đến cô lời chúc sức khỏe dồi dào và hạnh phúc tràn đầy. Cô không chỉ truyền cho chúng em kiến thức, mà còn luôn đồng hành, nâng đỡ và soi sáng chúng em trên mỗi bước trưởng thành. Sự tận tâm và yêu thương của cô đã in sâu trong tim chúng em, và chúng em biết ơn cô hơn bất cứ lời nào có thể diễn tả.</p>
-        </header>
+        <p>Mỗi khoảnh khắc dưới mái trường đều quý giá, người lái đò không chỉ dạy chúng em kiến thức mà còn trao tặng hành trang kỉ niệm và bài học làm người. Kính chúc Cô 20/11 thật nhiều niềm vui và hạnh phúc!</p>
+    </header>
 
-        <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
+    <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
 
-            <div class="video-wrapper" style="
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        ">
-            <video controls>
-                <source src="7238327326694.mp4" type="video/mp4">
-            </video>
-        </div>
+    <!-- ⭐ VIDEO DUY NHẤT Ở GIỮA TRANG -->
+    <div style="
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    ">
+        <video controls style="
+            width: 80%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        ">
+            <source src="7237699225630.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    </div> </body>
+</body>
 </html>
