@@ -12,9 +12,16 @@
             background-color: #F6bFb4;
         }
 
+        /* ĐÃ THÊM: Giới hạn chiều rộng tối đa của toàn bộ nội dung */
+        .container {
+            max-width: 800px; /* Nội dung sẽ không rộng quá 800px */
+            margin: 0 auto; /* Căn giữa khối nội dung này */
+            padding: 0 10px;
+        }
+
         .logo-section {
             padding: 20px 10px;
-            text-align: center;
+            text-align: center; /* Đảm bảo logo và chữ trong header được căn giữa */
             color: #4b0082;
         }
 
@@ -34,36 +41,41 @@
             max-width: 400px;
             height: auto; 
             display: block; 
-            margin: 0 auto 10px;
+            margin: 0 auto 10px; /* Đảm bảo logo được căn giữa */
         }
+        
+        /* Chỉnh CSS để video hiển thị tốt trong container mới */
+        .video-wrapper video {
+            width: 100% !important; /* Chiếm 100% chiều rộng của container */
+            max-width: 700px; /* Vẫn giữ giới hạn ban đầu của bạn */
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
-    
-    <header class="logo-section">
-        <img src="logokiniem.png" alt="Logo Kỷ Niệm">
-        
-        <p>Nhân ngày 20/11, chúng em xin gửi đến cô lời chúc sức khỏe dồi dào và hạnh phúc tràn đầy. Cô không chỉ truyền cho chúng em kiến thức, mà còn luôn đồng hành, nâng đỡ và soi sáng chúng em trên mỗi bước trưởng thành. Sự tận tâm và yêu thương của cô đã in sâu trong tim chúng em, và chúng em biết ơn cô hơn bất cứ lời nào có thể diễn tả.</p>
-    </header>
+    
+    <div class="container">
+        
+        <header class="logo-section">
+            <img src="logokiniem.png" alt="Logo Kỷ Niệm">
+            
+            <p>Nhân ngày 20/11, chúng em xin gửi đến cô lời chúc sức khỏe dồi dào và hạnh phúc tràn đầy. Cô không chỉ truyền cho chúng em kiến thức, mà còn luôn đồng hành, nâng đỡ và soi sáng chúng em trên mỗi bước trưởng thành. Sự tận tâm và yêu thương của cô đã in sâu trong tim chúng em, và chúng em biết ơn cô hơn bất cứ lời nào có thể diễn tả.</p>
+        </header>
 
-    <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
+        <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
 
-        <div style="
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 40px;
-    ">
-        <video controls style="
-            width: 80%;
-            max-width: 700px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        ">
-            <source src="7238327326694.mp4" type="video/mp4">
-        </video>
-    </div>
+            <div class="video-wrapper" style="
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        ">
+            <video controls>
+                <source src="7238327326694.mp4" type="video/mp4">
+            </video>
+        </div>
 
-</body>
+    </div> </body>
 </html>
