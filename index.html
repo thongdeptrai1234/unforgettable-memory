@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kỉ Niệm đáng nhớ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỉ Niệm đáng nhớ</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #F6bFb4;
-        }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #F6bFb4;
+            position: relative; /* Quan trọng để định vị ảnh góc */
+            min-height: 100vh; /* Đảm bảo body đủ cao để hiển thị ảnh */
+        }
 
-        .logo-section {
-            padding: 20px 10px;
-            text-align: center;
-            color: #4b0082;
-        }
+        .logo-section {
+            padding: 20px 10px;
+            text-align: center;
+            color: #4b0082;
+        }
 
-        .logo-section h1 {
-            margin-bottom: 5px;
-            font-size: 28px;
-            color: #8b0000;
-        }
+        .logo-section h1 {
+            margin-bottom: 5px;
+            font-size: 28px;
+            color: #8b0000;
+        }
 
-        .logo-section p {
-            margin-top: 0;
-            font-style: italic;
-            font-size: 16px;
-        }
+        .logo-section p {
+            margin-top: 0;
+            font-style: italic;
+            font-size: 16px;
+        }
 
-        .logo-section img { 
-            max-width: 400px;
-            height: auto; 
-            display: block; 
-            margin: 0 auto 10px;
+        .logo-section img { 
+            max-width: 400px;
+            height: auto; 
+            display: block; 
+            margin: 0 auto 10px;
+        }
+
+        /* CSS cho ảnh góc */
+        .corner-image {
+            position: absolute; /* Định vị tuyệt đối so với body */
+            top: 0;
+            right: 0;
+            width: 150px; /* Điều chỉnh kích thước ảnh */
+            height: auto;
+            z-index: 10; /* Đảm bảo ảnh hiển thị trên các nội dung khác */
         }
-    </style>
+    </style>
 </head>
 <body>
-    
-    <header class="logo-section">
-        <img src="logokiniem.png" alt="Logo Kỷ Niệm">
-        
-        <p>Nhân ngày 20/11, chúng em xin gửi đến cô lời chúc sức khỏe dồi dào và hạnh phúc tràn đầy. Cô không chỉ truyền cho chúng em kiến thức, mà còn luôn đồng hành, nâng đỡ và soi sáng chúng em trên mỗi bước trưởng thành. Sự tận tâm và yêu thương của cô đã in sâu trong tim chúng em, và chúng em biết ơn cô hơn bất cứ lời nào có thể diễn tả.</p>
-    </header>
+    
+    <header class="logo-section">
+        <img src="logokiniem.png" alt="Logo Kỷ Niệm">
+        
+        <p>Nhân ngày 20/11, chúng em xin gửi đến cô lời chúc sức khỏe dồi dào và hạnh phúc tràn đầy. Cô không chỉ truyền cho chúng em kiến thức, mà còn luôn đồng hành, nâng đỡ và soi sáng chúng em trên mỗi bước trưởng thành. Sự tận tâm và yêu thương của cô đã in sâu trong tim chúng em, và chúng em biết ơn cô hơn bất cứ lời nào có thể diễn tả.</p>
+    </header>
 
-    <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
+    <hr style="border-top: 1px solid #ff69b4; margin: 10px 0;">
 
-    <!-- ⭐ VIDEO DUY NHẤT Ở GIỮA TRANG -->
-    <div style="
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 40px;
-    ">
-        <video controls style="
-            width: 80%;
-            max-width: 700px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        ">
-            <source src="7238327326694.mp4" type="video/mp4">
-        </video>
-    </div>
+        <div style="
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    ">
+        <video controls style="
+            width: 80%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        ">
+            <source src="7238327326694.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAKAAQMAAAD49Q5pAAAAAXNSR0IB2cksfwAAAANQTFRFjIyM////F2b34gAAAAF0Uk5TAEDm2fR2AAAAjElEQVR4nO3VMQ2AMAwDQeXf9pW24cESpAgk+M9N/lD+29vbtu3buM4j0wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALy9u+3btm3btm3btm3btm3btm0BHgXvj1XpT4i9AAAAAElFTkSuQmCC" alt="Ảnh góc" class="corner-image">
 
 </body>
 </html>
-
-
